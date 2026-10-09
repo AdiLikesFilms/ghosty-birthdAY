@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f5ef">
+  <title>Happy birthday ghostgirl_</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f5f2ec;
+      --white: #fffefa;
+      --ink: #252a27;
+      --muted: #777b73;
+      --line: #e8e4dc;
+      --tomato: #d7553c;
+      --tomato-dark: #b94732;
+      --green: #38735b;
+      --green-pale: #eaf2eb;
+      --red-pale: #fbede8;
+      --blue: #3b6870;
+      font-family: 'DM Sans', sans-serif;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      color: var(--ink);
+      background-color: var(--paper);
+      background-image: radial-gradient(#d8d2c8 0.65px, transparent 0.65px);
+      background-size: 15px 15px;
+    }
+
+    button, textarea { font: inherit; }
+    button { color: inherit; }
+
+    .site-header {
+      width: min(1120px, calc(100% - 48px));
+      height: 76px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(37, 42, 39, 0.12);
+    }
+
+    .wordmark {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .wordmark-mark {
+      width: 29px;
+      height: 29px;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: var(--tomato);
+      border-radius: 50%;
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 18px;
+      transform: rotate(-8deg);
+    }
+
+    .header-actions { display: flex; align-items: center; gap: 16px; }
+
+    .edition {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .edit-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 12px;
+      border: 1px solid #d9d4ca;
+      border-radius: 5px;
+      background: rgba(255, 254, 250, 0.68);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 150ms ease, border-color 150ms ease;
+    }
+
+    .edit-button:hover { background: var(--white); border-color: #aaa397; }
+    .edit-button svg { width: 14px; height: 14px; }
+
+    main {
+      width: min(1060px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 48px 0 54px;
+    }
+
+    .page-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+      gap: 34px;
+      align-items: stretch;
+    }
+
+    .game-column { padding: 12px 0; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 16px;
+      color: var(--tomato-dark);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 20px;
+      height: 1px;
+      background: currentColor;
+      content: '';
+    }
+
+    h1 {
+      max-width: 530px;
+      margin: 0;
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(43px, 5vw, 62px);
+      font-weight: 500;
+      line-height: 0.99;
+    }
+
+    h1 span { color: var(--tomato); font-style: italic; }
+
+    .intro {
+      max-width: 435px;
+      margin: 15px 0 26px;
+      color: #656a63;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .quiz-panel {
+      padding: 22px 24px 24px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--white);
+      box-shadow: 0 7px 20px rgba(48, 42, 30, 0.035);
+      animation: arrive 380ms ease both;
+    }
+
+    .panel-top {
+      min-height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .round-label { color: var(--ink); }
+
+    .progress-track {
+      width: 86px;
+      height: 4px;
+      overflow: hidden;
+      border-radius: 5px;
+      background: #eeece5;
+    }
+
+    .progress-fill {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--tomato);
+      transition: width 220ms ease;
+    }
+
+    .quote-area {
+      min-height: 146px;
+      display: flex;
+      align-items: center;
+      padding: 18px 0 16px;
+    }
+
+    .quote-text {
+      margin: 0;
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 26px;
+      font-weight: 500;
+      line-height: 1.28;
+    }
+
+    .quote-mark {
+      display: block;
+      margin-bottom: -5px;
+      color: #e7b39f;
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 43px;
+      line-height: 0.8;
+    }
+
+    .answer-list { display: grid; gap: 8px; }
+
+    .answer-button {
+      width: 100%;
+      min-height: 43px;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding: 8px 12px;
+      border: 1px solid #e7e4dd;
+      border-radius: 4px;
+      background: transparent;
+      text-align: left;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: border-color 140ms ease, background 140ms ease, transform 140ms ease;
+    }
+
+    .answer-button:not(:disabled):hover {
+      border-color: #b8b2a7;
+      background: #faf8f3;
+      transform: translateX(2px);
+    }
+
+    .answer-letter {
+      width: 23px;
+      height: 23px;
+      flex: 0 0 23px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #e9e5dc;
+      border-radius: 50%;
+      color: #74786f;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .answer-button.correct { border-color: #b4cfbc; background: var(--green-pale); }
+    .answer-button.correct .answer-letter { border-color: var(--green); color: white; background: var(--green); }
+    .answer-button.incorrect { border-color: #ebc0b2; background: var(--red-pale); }
+    .answer-button.incorrect .answer-letter { border-color: var(--tomato); color: white; background: var(--tomato); }
+    .answer-button:disabled { cursor: default; }
+
+    .answer-status {
+      min-height: 35px;
+      display: flex;
+      align-items: center;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .answer-status.is-correct { color: var(--green); }
+    .answer-status.is-incorrect { color: var(--tomato-dark); }
+
+    .primary-button {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 17px;
+      border: 0;
+      border-radius: 4px;
+      color: white;
+      background: var(--tomato);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 150ms ease, transform 150ms ease;
+    }
+
+    .primary-button:hover { background: var(--tomato-dark); transform: translateY(-1px); }
+    .primary-button svg { width: 16px; height: 16px; }
+
+    .button-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .keyboard-hint { color: #8a8d85; font-size: 10px; }
+
+    .side-column {
+      min-height: 535px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border-radius: 6px;
+      color: white;
+      background: var(--blue);
+    }
+
+    .photo-wrap {
+      min-height: 350px;
+      position: relative;
+      flex: 1;
+      overflow: hidden;
+      background: #bb7960;
+    }
+
+    .photo-wrap::after {
+      position: absolute;
+      inset: 35% 0 0;
+      background: linear-gradient(transparent, rgba(27, 38, 35, 0.73));
+      content: '';
+    }
+
+    .photo-wrap img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      inset: 0;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .photo-caption {
+      position: absolute;
+      z-index: 1;
+      right: 24px;
+      bottom: 23px;
+      left: 24px;
+    }
+
+    .photo-caption p {
+      margin: 0 0 7px;
+      color: #f1c7a8;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .photo-caption h2 {
+      max-width: 330px;
+      margin: 0;
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 29px;
+      font-weight: 500;
+      line-height: 1.12;
+    }
+
+    .scorebar {
+      min-height: 91px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      background: #315d65;
+    }
+
+    .score-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 12px 23px;
+    }
+
+    .score-item + .score-item { border-left: 1px solid rgba(255, 255, 255, 0.18); }
+    .score-value { font-family: 'Fraunces', Georgia, serif; font-size: 24px; line-height: 1; }
+    .score-name { margin-top: 5px; color: #cad9d8; font-size: 10px; font-weight: 600; }
+
+    .hidden { display: none !important; }
+
+    @keyframes arrive {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 760px) {
+      .site-header { width: min(100% - 32px, 600px); height: 66px; }
+      main { width: min(100% - 32px, 600px); padding: 33px 0 32px; }
+      .page-grid { grid-template-columns: 1fr; gap: 22px; }
+      .game-column { padding: 4px 0 0; }
+      h1 { max-width: 460px; font-size: clamp(45px, 10vw, 60px); }
+      .intro { margin: 12px 0 20px; }
+      .side-column { min-height: 360px; }
+      .photo-wrap { min-height: 270px; }
+      .scorebar { min-height: 78px; }
+    }
+
+    @media (max-width: 420px) {
+      .site-header { width: calc(100% - 26px); }
+      main { width: calc(100% - 26px); padding-top: 27px; }
+      .edition { display: none; }
+      .quiz-panel { padding: 18px 16px 17px; }
+      .quote-text { font-size: 23px; }
+      .answer-button { min-height: 42px; }
+      .side-column { min-height: 340px; }
+      .photo-wrap { min-height: 245px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+
+    body { background: #f7f5ef; }
+
+    .site-header {
+      width: min(760px, calc(100% - 36px));
+      height: 76px;
+      justify-content: center;
+      border: 0;
+    }
+
+    .wordmark {
+      font-family: 'Kalam', cursive;
+      color: #315c55;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    main {
+      width: min(600px, calc(100% - 36px));
+      padding: 46px 0 56px;
+    }
+
+    .game-column { padding: 0; }
+
+    .quiz-panel {
+      padding: 25px 30px 29px;
+      border: 0;
+      border-radius: 22px;
+      background: #fffefa;
+      box-shadow: 0 12px 36px rgba(73, 88, 72, 0.08);
+      animation: none;
+    }
+
+    .panel-top {
+      min-height: 24px;
+      color: #747b72;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .round-label { color: #447269; }
+
+    .progress-track {
+      width: 100%;
+      height: 5px;
+      margin-top: 8px;
+      border-radius: 10px;
+      background: #edf0e9;
+    }
+
+    .progress-fill { border-radius: inherit; background: #78a58e; }
+
+    .quote-area {
+      min-height: 200px;
+      display: grid;
+      grid-template-columns: 28px minmax(0, 1fr) 24px;
+      align-items: center;
+      padding: 25px 0 22px;
+    }
+
+    .quote-mark {
+      margin: 0;
+      color: #e49a75;
+      font-family: 'Kalam', cursive;
+      font-size: 32px;
+      line-height: 1;
+    }
+
+    .quote-mark-close { align-self: end; }
+
+    .quote-text {
+      margin: 0;
+      font-family: 'Kalam', cursive;
+      color: #343b37;
+      font-size: 29px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .answer-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px; }
+
+    .answer-button {
+      min-height: 52px;
+      padding: 6px 7px;
+      border: 1px solid #e8e8de;
+      border-radius: 16px;
+      background: #fbfaf5;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      transition: background 140ms ease, border-color 140ms ease, transform 140ms ease;
+    }
+
+    .answer-button:not(:disabled):hover { border-color: #a9c5b4; background: #f0f6ed; transform: translateY(-2px); }
+
+    .answer-letter {
+      width: 22px;
+      height: 22px;
+      flex-basis: 22px;
+      border-color: #d8dcd1;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+    }
+
+    .answer-button.correct { border-color: #8eb99b; background: #eaf4e9; }
+    .answer-button.correct .answer-letter { border-color: #578366; background: #578366; }
+    .answer-button.incorrect { border-color: #e7b3a4; background: #fbefeb; }
+
+    .answer-status {
+      min-height: 46px;
+      color: #73776e;
+      font-size: 13px;
+    }
+
+    .answer-status.is-correct { color: #426d53; }
+    .answer-status.is-incorrect { color: var(--tomato-dark); }
+
+    .primary-button {
+      min-height: 42px;
+      padding: 4px 18px;
+      border: 0;
+      border-radius: 14px;
+      color: #36554b;
+      background: #e9d98d;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .primary-button:hover { background: #e3cf72; transform: translateY(-1px); }
+
+    @media (max-width: 760px) {
+      .site-header { width: calc(100% - 30px); height: 68px; }
+      main { width: calc(100% - 30px); padding: 30px 0 36px; }
+      .game-column { padding: 0; }
+      .quiz-panel { padding: 22px 22px 24px; }
+    }
+
+    @media (max-width: 420px) {
+      .site-header { width: calc(100% - 24px); }
+      main { width: calc(100% - 24px); padding-top: 25px; }
+      .wordmark { font-size: 22px; }
+      .quiz-panel { padding: 19px 16px 20px; border-radius: 19px; }
+      .quote-area { min-height: 165px; grid-template-columns: 21px minmax(0, 1fr) 18px; }
+      .quote-text { font-size: 24px; }
+      .answer-list { gap: 9px; }
+      .answer-button { min-height: 49px; padding: 5px; gap: 7px; font-size: 13px; }
+      .answer-letter { width: 20px; height: 20px; flex-basis: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wordmark">Happy birthday ghostgirl_</div>
+  </header>
+
+  <main>
+    <section class="game-column" aria-label="Birthday quote quiz">
+      <section class="quiz-panel" aria-label="Quote quiz">
+        <div class="panel-top">
+          <span class="round-label" id="roundLabel"></span>
+          <span id="scoreLabel">0 right</span>
+        </div>
+        <div class="progress-track" aria-label="Quiz progress"><span class="progress-fill" id="progressFill"></span></div>
+        <div class="quote-area" id="quoteArea">
+          <p class="quote-mark" aria-hidden="true">“</p>
+          <p class="quote-text" id="quoteText"></p>
+          <p class="quote-mark quote-mark-close" aria-hidden="true">”</p>
+        </div>
+        <div class="answer-list" id="answerList" aria-label="Choose who said the quote"></div>
+        <div class="answer-status" id="answerStatus" aria-live="polite"></div>
+        <button class="primary-button hidden" id="nextButton" type="button">Next quote <span aria-hidden="true">&#8594;</span></button>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    const starterQuiz = {
+      names: ['Tap100', 'SSRS', 'Kay', 'Ameen', 'VIP', 'Nice Ex', 'Aerys', 'Adikan', 'Rora', 'Lukyop007', 'Pandiai'],
+      quotes: [
+        { name: 'Tap100', text: "Funniest memory was 2 years ago on one of my alt when you had banned me on Discord so I begged you in DMs for unlink saying I'm just a 13 yr old when actually I was 14 smh" },
+        { name: 'SSRS', text: 'When she confronted me after realizing ____ was ____, she was like “well well well, so ____ eh”' },
+        { name: 'Kay', text: "HAPPY BIRTHDAY GHOST FEMALE HOPE THE DAY IS AMAZING AND ONLY THE DAY NO OTHER DAYS more importantly since you are turning 40 i think it's time we start thinking about starting a family if you need advice i have experience so can help just dm me. Best wishes and don't die!! i'm so fucking kind" },
+        { name: 'Ameen', text: 'Funniest memory was when owners were working hard on reset while we all were js chilling in general vc listening to music' },
+        { name: 'VIP', text: 'I want to make an anonymous report that Dumbinus is harassing a fellow moderator Dest in staff chat' },
+        { name: 'Nice Ex', text: '“When you said "fuck Lucy let her die"”' },
+        { name: 'Aerys', text: 'Back in MinePeak, when I used to argue with Meera and I’d ping her and she’d come and defend me.' },
+        { name: 'Adikan', text: 'That one time owners banned me for something but you unbanned me but then owners banned me again but you unbanned me again that was nice of u' },
+        { name: 'Rora', text: 'Happy birthday! You’re officially one year closer to being ancient.' },
+        { name: 'Lukyop007', text: 'I still remember when my spacebar broke and you sent me that full tutorial with pictures in DMs to help me fix it.' },
+        { name: 'Pandiai', text: 'i chunk banned the end and she told me if i couldnt figure out a way to revert it id get banned' }
+      ]
+    };
+
+    const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
+    const elements = {
+      answerList: document.querySelector('#answerList'),
+      answerStatus: document.querySelector('#answerStatus'),
+      nextButton: document.querySelector('#nextButton'),
+      progressFill: document.querySelector('#progressFill'),
+      quoteText: document.querySelector('#quoteText'),
+      roundLabel: document.querySelector('#roundLabel'),
+      scoreLabel: document.querySelector('#scoreLabel')
+    };
+
+    const quiz = starterQuiz;
+    let questionOrder = [];
+    let questionIndex = 0;
+    let score = 0;
+    let answered = false;
+
+    function shuffle(items) {
+      const result = [...items];
+      for (let index = result.length - 1; index > 0; index -= 1) {
+        const swapIndex = Math.floor(Math.random() * (index + 1));
+        [result[index], result[swapIndex]] = [result[swapIndex], result[index]];
+      }
+      return result;
+    }
+
+    function setScore() {
+      elements.scoreLabel.textContent = `${score} right`;
+    }
+
+    function startRound() {
+      if (questionOrder.length === 0 || questionIndex >= questionOrder.length) {
+        questionOrder = shuffle(quiz.quotes);
+        questionIndex = 0;
+        score = 0;
+      }
+      const current = questionOrder[questionIndex];
+      const distractors = shuffle(quiz.names.filter((name) => name !== current.name)).slice(0, 3);
+      const choices = shuffle([current.name, ...distractors]);
+      answered = false;
+
+      elements.roundLabel.textContent = `${questionIndex + 1} / ${questionOrder.length}`;
+      elements.progressFill.style.width = `${((questionIndex + 1) / questionOrder.length) * 100}%`;
+      elements.quoteText.textContent = current.text;
+      elements.answerStatus.textContent = '';
+      elements.answerStatus.className = 'answer-status';
+      elements.answerList.replaceChildren();
+      elements.nextButton.classList.add('hidden');
+
+      choices.forEach((name, index) => {
+        const button = document.createElement('button');
+        button.className = 'answer-button';
+        button.type = 'button';
+        button.dataset.name = name;
+        const letter = document.createElement('span');
+        letter.className = 'answer-letter';
+        letter.textContent = letters[index];
+        const label = document.createElement('span');
+        label.textContent = name;
+        button.append(letter, label);
+        button.addEventListener('click', () => chooseAnswer(button, current.name));
+        elements.answerList.append(button);
+      });
+
+      elements.answerList.classList.remove('hidden');
+      setScore();
+    }
+
+    function chooseAnswer(button, correctName) {
+      if (answered) return;
+      answered = true;
+      const isCorrect = button.dataset.name === correctName;
+      if (isCorrect) score += 1;
+      elements.answerList.querySelectorAll('button').forEach((answerButton) => {
+        answerButton.disabled = true;
+        if (answerButton.dataset.name === correctName) answerButton.classList.add('correct');
+      });
+      if (!isCorrect) button.classList.add('incorrect');
+
+      elements.answerStatus.textContent = isCorrect ? `yep, it was ${correctName}!` : `nope, it was ${correctName}.`;
+      elements.answerStatus.classList.add(isCorrect ? 'is-correct' : 'is-incorrect');
+      elements.progressFill.style.width = `${((questionIndex + 1) / questionOrder.length) * 100}%`;
+      questionIndex += 1;
+      elements.nextButton.textContent = questionIndex === questionOrder.length ? 'play again →' : 'next quote →';
+      elements.nextButton.classList.remove('hidden');
+      setScore();
+    }
+
+    elements.nextButton.addEventListener('click', startRound);
+    startRound();
+  </script>
+</body>
+</html>
